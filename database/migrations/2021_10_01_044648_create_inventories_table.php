@@ -17,14 +17,13 @@ class CreateInventoriesTable extends Migration
             $table->id();
             $table->integer('quantity');
             $table->timestamp('date');
-            $table->string('details');
-            $table->string('code',6);
             $table->string('delivery_name')->nullable();
             $table->string('delivery_contact')->nullable();
             $table->string('notes')->nullable();
             $table->integer('expense')->nullable();
-            $table->foreignId('products')->constrained();
+            $table->foreignId('product_id')->constrained();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

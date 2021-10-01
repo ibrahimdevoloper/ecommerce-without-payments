@@ -75,13 +75,10 @@
 			<!--  -->
 			<div class="simpleslide100">
 				<div class="simpleslide100-item bg-img1" style="background-image: url({{asset('comingSoon/images/bg01.jpg')}});">
-                    <img src="{{asset('comingSoon/images/bg01.jpg')}}" alt="IMG">
                 </div>
 				<div class="simpleslide100-item bg-img1" style="background-image: url({{asset('comingSoon/images/bg02.jpg')}});">
-                    <img src="{{asset('comingSoon/images/bg02.jpg')}}" alt="IMG">
                 </div>
 				<div class="simpleslide100-item bg-img1" style="background-image: url({{asset('comingSoon/images/bg03.jpg')}});">
-                    <img src="{{asset('comingSoon/images/bg03.jpg')}}" alt="IMG">
                 </div>
 			</div>
 		</div>

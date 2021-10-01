@@ -24,8 +24,9 @@ class CreateOrdersTable extends Migration
             $table->string('delivery_contact')->nullable();
             $table->boolean('is_delivered')->default(false);
             $table->boolean('is_varified')->default(false);
-            $table->foreignId('users')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

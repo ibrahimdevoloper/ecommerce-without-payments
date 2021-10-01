@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class Inventory extends Model
+class OrderItem extends Model
 {
     use HasFactory;
 
@@ -16,17 +16,14 @@ class Inventory extends Model
     protected $dates=['deleted_at'];
 
     protected $fillable=[
+        'price',
         'quantity',
-        'date',
-        'delivery_name',
-        'delivery_contact',
-        'notes',
-        'expense',
+        'order_id',
         'product_id',
       ];
 
-      public function product()
+      public function order()
       {
-          $this->belongTo(App\Models\Product::class);
+        return $this->belongTo(App\Models\Order::class);
       }
 }

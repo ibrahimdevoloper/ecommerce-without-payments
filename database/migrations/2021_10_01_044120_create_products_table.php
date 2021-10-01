@@ -20,8 +20,9 @@ class CreateProductsTable extends Migration
             $table->string('details');
             $table->string('code');
             $table->integer('price');
-            $table->foreignId('categories')->constrained();
+            $table->foreignId('category_id')->constrained();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
