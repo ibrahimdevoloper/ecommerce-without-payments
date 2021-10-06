@@ -12,14 +12,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware(['web'])->group(function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
+    Route::get('/dashboard',[App\Http\Controllers\HomeController::class, 'index'])->middleware('auth.admin');
+    Route::get('/dashboard/login',[App\Http\Controllers\LoginController::class, 'login']);
+    Route::post('/logout',[App\Http\Controllers\LoginController::class, 'logout']);
+    Route::post('/dashboard/login/auth',[App\Http\Controllers\LoginController::class, 'authenticate']);
+    Route::get('/dashboard/register',[App\Http\Controllers\RegisterController::class, 'register']);
+    Route::post('/dashboard/register/auth',[App\Http\Controllers\RegisterController::class, 'authenticate']);
 });
-Route::get('/dashboard',function(){
-    return 'hi';
-})->middleware('auth');
-Route::get('/dashboard/login',[App\Http\Controllers\LoginController::class, 'login']);
-Route::post('/dashboard/login/auth',[App\Http\Controllers\LoginController::class, 'authenticate']);
-Route::get('/dashboard/register',[App\Http\Controllers\RegisterController::class, 'register']);
-Route::post('/dashboard/register/auth',[App\Http\Controllers\RegisterController::class, 'authenticate']);
+

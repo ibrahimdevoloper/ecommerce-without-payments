@@ -16,7 +16,7 @@ class User extends Authenticatable
 
     use SoftDeletes;
 
-    protected $dates=['deleted_at'];
+    protected $dates = ['deleted_at'];
 
 
     /**
@@ -54,12 +54,17 @@ class User extends Authenticatable
     ];
 
     public function orders()
-      {
+    {
         return $this->hasMany(App\Models\Order::class);
-      }
+    }
 
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
     }
+
+    public function isAdmin()
+      {
+        return $this->is_admin;
+      }
 }
