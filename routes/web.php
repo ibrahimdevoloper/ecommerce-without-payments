@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/dashboard',function(){
+    return 'hi';
+})->middleware('auth');
 Route::get('/dashboard/login',[App\Http\Controllers\LoginController::class, 'login']);
 Route::post('/dashboard/login/auth',[App\Http\Controllers\LoginController::class, 'authenticate']);
 Route::get('/dashboard/register',[App\Http\Controllers\RegisterController::class, 'register']);

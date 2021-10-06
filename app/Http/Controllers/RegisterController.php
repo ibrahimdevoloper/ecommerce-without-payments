@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,14 +23,19 @@ class RegisterController extends Controller
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
+            'name' => ['required'],
+            'address' => ['required'],
+            'email' => ['required', 'email','unique:users'],
+            'phone' => ['required','unique:users'],
             'password' => ['required'],
         ]);
+
+        $user = User::create($request->all());
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('dashboard');
+            return redirect('/dashboard');
         }
 
         return back()->withErrors([
