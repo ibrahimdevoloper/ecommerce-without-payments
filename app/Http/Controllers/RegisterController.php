@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LoginController extends Controller
+class RegisterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,10 +13,10 @@ class LoginController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function login()
+    public function register()
     {
         // return the view
-        return view('auth.login');
+        return view('auth.register');
     }
 
     public function authenticate(Request $request)

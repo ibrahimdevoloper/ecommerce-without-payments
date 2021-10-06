@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/hi', function () {
-    return "Ibrahim";
-});
-Route::get('/dashboard',[App\Http\Controllers\LoginController::class, 'login']);
+Route::get('/dashboard/login',[App\Http\Controllers\LoginController::class, 'login']);
+Route::post('/dashboard/login/auth',[App\Http\Controllers\LoginController::class, 'authenticate']);
+Route::get('/dashboard/register',[App\Http\Controllers\RegisterController::class, 'register']);
+Route::post('/dashboard/register/auth',[App\Http\Controllers\RegisterController::class, 'authenticate']);
