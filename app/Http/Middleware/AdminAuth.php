@@ -17,9 +17,12 @@ class AdminAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        $user=Auth::user();
-        if (!($user->isAdmin())) {
+        $user = Auth::user();
+        if ($user == null) {
             return redirect('/dashboard/login');
+            if (!($user->isAdmin())) {
+                return redirect('/dashboard/login');
+            }
         }
         return $next($request);
     }
