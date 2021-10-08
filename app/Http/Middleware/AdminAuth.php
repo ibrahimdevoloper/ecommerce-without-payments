@@ -19,10 +19,10 @@ class AdminAuth
     {
         $user = Auth::user();
         if ($user == null) {
+            return redirect('/dashboard/login'); 
+        }
+        if (!($user->isAdmin())) {
             return redirect('/dashboard/login');
-            if (!($user->isAdmin())) {
-                return redirect('/dashboard/login');
-            }
         }
         return $next($request);
     }

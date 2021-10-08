@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456'),
             'image'=>null,
             'username'=>'admin',
+            'is_admin'=>true,
             'address'=>"call me on my phone",
             'phone'=>'+963959504146',
         ]);
