@@ -17,6 +17,7 @@ Route::middleware(['web'])->group(function () {
         return view('welcome');
     });
     Route::get('/dashboard',[App\Http\Controllers\HomeController::class, 'index'])->middleware('auth.admin');
+    Route::resource('/dashboard/users',App\Http\Controllers\UserController::class)->middleware('auth.admin');
     Route::get('/dashboard/login',[App\Http\Controllers\LoginController::class, 'login']);
     Route::post('/logout',[App\Http\Controllers\LoginController::class, 'logout']);
     Route::post('/dashboard/login/auth',[App\Http\Controllers\LoginController::class, 'authenticate']);
