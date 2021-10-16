@@ -6,9 +6,10 @@
 {{-- Setup data for datatables --}}
 @php
 $heads = [
-    'ID',
+    'image',
     'Name',
-    ['label' => 'Phone', 'width' => 40],
+    'E-Mail',
+    'phone',
     ['label' => 'Actions', 'no-export' => true, 'width' => 5],
 ];
 
@@ -24,9 +25,11 @@ $btnDetails = '<button class="btn btn-xs btn-default text-teal mx-1 shadow" titl
 // dd($users);
 $data =[];
 foreach ($users as $user ) {
+    $image=asset($user->image);
     $data[]=[
-        $user->id,
+        '<img src='.$image.' width="75" height="75">',
         $user->name,
+        $user->email,
         $user->phone,
         '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>',
     ];
@@ -39,18 +42,13 @@ $config = [
     //     [3, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
     // ],
     'order' => [[1, 'asc']],
-    'columns' => [null, null, null, ['orderable' => false]],
-    'dom'=>'<"row" <"col-sm-7" B> <"col-sm-5 d-flex justify-content-end" i> >
-                  <"row" <"col-12" tr> >
-                  <"row" <"col-sm-12 d-flex justify-content-start" f> >',
-    'paging'=>true,
-    "lengthMenu"=>[ 10, 50, 100, 500]
+    'columns' => [null, null, null, ['orderable' => true]],
 ];
 
 @endphp
 
 {{-- Minimal example / fill data using the component slot --}}
-<x-adminlte-datatable id="table1" :heads="$heads" head-theme="dark" :config="$config"
+<x-adminlte-datatable id="user_table" :heads="$heads" head-theme="dark" :config="$config"
     hoverable bordered compressed beautify >
     @foreach($config['data'] as $row)
         <tr>

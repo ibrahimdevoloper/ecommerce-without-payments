@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AdminAuth
 {
@@ -19,7 +20,7 @@ class AdminAuth
     {
         $user = Auth::user();
         if ($user == null) {
-            return redirect('/dashboard/login'); 
+            return redirect('/dashboard/login');
         }
         if (!($user->isAdmin())) {
             return redirect('/dashboard/login');
