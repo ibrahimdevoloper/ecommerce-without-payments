@@ -1,6 +1,6 @@
 @if ($paginator->hasPages())
     <div class="row">
-        <div class="col-sm-12 col-md-10">
+        <div class="col-sm-12 col-md-auto">
             <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">
                 Showing {{($paginator->currentPage()-1)*$paginator->perPage()+1}} to {{($paginator->currentPage()-1)*$paginator->perPage()+$paginator->count()}} of {{$paginator->total()}} entries
             </div>

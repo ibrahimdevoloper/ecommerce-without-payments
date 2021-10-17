@@ -24,6 +24,6 @@ class OrderItem extends Model
 
       public function order()
       {
-        return $this->belongTo(App\Models\Order::class);
+        return $this->belongsTo(App\Models\Order::class);
       }
 }

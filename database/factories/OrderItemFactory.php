@@ -25,7 +25,7 @@ class OrderItemFactory extends Factory
     {
         return [
             'price'=>$this->faker->randomNumber(6),
-            'quantity'=>$this->faker->randomNumber(6),
+            'quantity'=>$this->faker->randomNumber(3),
             'order_id'=>Order::all()->random()->id,
             'product_id'=>Product::all()->random()->id,
         ];

@@ -272,8 +272,8 @@ return [
             // 'label'       => 4,
             // 'label_color' => 'success',
         ],[
-            'text'        => 'Invetories',
-            'url'         => 'dashboard/invetories',
+            'text'        => 'Inventories',
+            'url'         => 'dashboard/inventories',
             'icon'        => 'fas fa-shipping-fast',
             // 'label'       => 4,
             // 'label_color' => 'success',

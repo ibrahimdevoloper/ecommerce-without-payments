@@ -30,12 +30,12 @@ class DatabaseSeeder extends Seeder
         OrderItem::truncate();
         Product::truncate();
         User::truncate();
-        
+
 
         $categoryQuantty=5;
         $inventoryQuantty=100;
         $orderQuantty=50;
-        $orderItemQuantty=150;
+        $orderItemQuantty=50;
         $productQuantty=30;
         $userQuantty=15;
 
@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
         User::factory()->count($userQuantty)->create();
         Order::factory()->count($orderQuantty)->create();
         OrderItem::factory()->count($orderItemQuantty)->create();
-        
-        
+
+
     }
 }
