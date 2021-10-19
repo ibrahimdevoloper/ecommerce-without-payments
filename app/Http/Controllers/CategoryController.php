@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\CategoryPostRequest;
 
 class CategoryController extends Controller
 {
@@ -25,18 +26,25 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\CategoryPostRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryPostRequest $request)
     {
-        //
+        $path=$request->file('image')->storeAs(
+            'avatars', $request->name
+        );
+
+        $category = $request->all();
+        $category['image']='/Storage/'.$path;
+        Category::create($category);
+        return redirect('/dashboard/categories');
     }
 
     /**
