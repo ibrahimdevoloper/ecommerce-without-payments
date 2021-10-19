@@ -1,6 +1,9 @@
 @extends('adminlte::page')
 @section('content_header')
 <h2>Users</h2>
+
+<a href="users/create"><x-adminlte-button class="btn-md"
+    type="submit" label="Add User" theme="success" icon="fas fa-md fa-save"/></a>
 @endsection
 @section('content')
 {{-- Setup data for datatables --}}
@@ -42,7 +45,7 @@ $config = [
     //     [3, 'Peter Sousa', '+69 (555) 12367345243', '<nobr>'.$btnEdit.$btnDelete.$btnDetails.'</nobr>'],
     // ],
     'order' => [[1, 'asc']],
-    'columns' => [null, null, null, ['orderable' => true]],
+    'columns' => [null, null, null, ['orderable' => false]],
 ];
 
 @endphp

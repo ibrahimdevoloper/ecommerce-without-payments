@@ -1,6 +1,8 @@
 @extends('adminlte::page')
 @section('content_header')
 <h2>Inventories</h2>
+<a href="inventories/create"><x-adminlte-button class="btn-md"
+    type="submit" label="Add Inventory" theme="success" icon="fas fa-md fa-save"/></a>
 @endsection
 @section('content')
 {{-- Setup data for datatables --}}

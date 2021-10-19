@@ -1,6 +1,8 @@
 @extends('adminlte::page')
 @section('content_header')
 <h2>Orders</h2>
+<a href="orders/create"><x-adminlte-button class="btn-md"
+    type="submit" label="Add Order" theme="success" icon="fas fa-md fa-save"/></a>
 @endsection
 @section('content')
 {{-- Setup data for datatables --}}
