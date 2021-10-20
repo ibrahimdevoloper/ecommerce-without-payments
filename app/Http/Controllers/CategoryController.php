@@ -6,6 +6,8 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoryPostRequest;
 
+use Illuminate\Support\Facades\Storage;
+
 class CategoryController extends Controller
 {
     /**
@@ -37,13 +39,29 @@ class CategoryController extends Controller
      */
     public function store(CategoryPostRequest $request)
     {
-        $path=$request->file('image')->storeAs(
-            'avatars', $request->name
+        $uploadFolder = 'categories';
+        $image_uploaded_path = $request->file('image')->store(
+            $uploadFolder,'public'
         );
+        // $image_uploaded_path = $image->store($uploadFolder, 'public');
 
         $category = $request->all();
-        $category['image']='/Storage/'.$path;
+        $category['image']=$image_uploaded_path;
         Category::create($category);
+
+        // $uploadedImageResponse = array(
+        //     "image_path" => $image_uploaded_path,
+        //     "image_name" => basename($image_uploaded_path),
+        //     "image_url" => Storage::disk('public')->url($image_uploaded_path),
+        //     "mime" => $image->getClientMimeType()
+        // );
+        // return response()->json(
+        //     array(
+        //         'message'=>'File Uploaded Successfully',
+        //         'data'=>$uploadedImageResponse
+        //     )
+        //     );
+
         return redirect('/dashboard/categories');
     }
 

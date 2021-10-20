@@ -26,7 +26,7 @@ $btnDetails = '<button class="btn btn-xs btn-default text-teal mx-1 shadow" titl
 // dd($users);
 $data =[];
 foreach ($categories as $category ) {
-    $image=asset($category->image);
+    $image=asset("/storage/".$category->image);
     $data[]=[
         '<img src='.$image.' width="75" height="75">',
         $category->name,
@@ -58,5 +58,5 @@ $config = [
         </tr>
     @endforeach
 </x-adminlte-datatable>
-{{-- {{$categories->links()}} --}}
+{{$categories->links()}}
 @endsection
