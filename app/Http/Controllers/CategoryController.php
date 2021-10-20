@@ -6,7 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoryPostRequest;
 
-use Illuminate\Support\Facades\Storage;
+// use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -17,7 +17,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories =Category::paginate(10);
+        $categories = Category::paginate(10);
         return view('categories.index',compact('categories'));
     }
 
