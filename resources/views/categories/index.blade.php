@@ -24,7 +24,7 @@
     // dd($users);
     $data = [];
     foreach ($categories as $category) {
-        $image = asset('/storage//' . $category->image);
+        $image = asset('/storage/' . $category->image);
         $data[] = [
             '<img src=' . $image . ' width="75" height="75">',
             $category->name,

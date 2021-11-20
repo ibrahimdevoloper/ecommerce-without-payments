@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\ProductsDataTable;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -12,10 +13,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(ProductsDataTable $dataTable)
     {
-        $products =Product::paginate(10);
-        return view('products.index',compact('products'));
+        // $products =Product::paginate(10);
+        // return view('products.index',compact('products'));
+        return $dataTable->render('products.index');
     }
 
     /**
